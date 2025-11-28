@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119c1bd3601648f28a252a6030e067b6, type: 3}
   m_Name: UnityFigmaBridgeSettings
   m_EditorClassIdentifier: 
-  DocumentUrl: https://www.figma.com/design/9DdXLAIpHVGyhEL4E9Vwu1/Vincom-AR-App--Copy-?node-id=77-38&p=f&t=l342cxU8izTibb2C-0
+  DocumentUrl: https://www.figma.com/design/7mHeEn9T2NFmvRBVlF4E3q/Vincom-AR-App?node-id=77-38&p=f&t=AAV31uIO3hCB0eni-0
   BuildPrototypeFlow: 1
   RunTimeAssetsScenePath: Assets/Samples/MultiSet-SDK/1.9.3/Sample Scenes/Navigation/Navigation.unity
   EnableAutoLayout: 0

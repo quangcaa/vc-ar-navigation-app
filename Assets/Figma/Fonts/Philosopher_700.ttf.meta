@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 157daf1922062584e902a115bd782536
+guid: dfd53db8c96ebe444ba6664a4ded3964
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Poppins
+  - Philosopher
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
