@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Home.unity
     guid: 0bd73e549748ae04bb8080096c2beb34
   - enabled: 1
-    path: Assets/Samples/MultiSet-SDK/1.9.3/Sample Scenes/Navigation/Navigation.unity
+    path: Assets/Navigation/Navigation/Navigation.unity
     guid: 661affd263ed54019b4f2d59bbdb7c73
   - enabled: 1
-    path: Assets/Samples/MultiSet-SDK/1.9.3/Sample Scenes/Navigation/Navigation2.unity
+    path: Assets/Navigation/Navigation/Navigation.unity
     guid: 4756266ab70c6b942958e390ef123b12
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
