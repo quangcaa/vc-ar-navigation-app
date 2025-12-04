@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "winter-bridge-405714",
+  "private_key_id": "bfad5a3e60af8b4869ab2a225e20ef29bddd36f2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDxEKB1hrNmf2yR\nUtKNffaQgMBwpjwjLsVxTKphvVAnan7lhnpmBDGl7LvB1rP+JFgeeqgsc0ZjAYWp\n1Gybj1Soy+bJQqmhmaNeydKLw5VJOmZ88+rwuzHMhC1l9aoXegfd17KNyLp95z+j\nfhFE7UWC/ft4O9wXapD6IOo6NIA9jlov2JQsJQETiBfZdBOVmZU6wYO47vjoK3UP\nczt1MQzgDFh7HItee4WxSFBofF4B5ctVMikAt9TiLSgr+ILCA7dPq4no5Mb4t3MW\ntrPgETnAPjRyky8suv1cQMV2Dc6/pG/w3acu724ohh2Yj74gU60uhbloCN4gy3IT\njBhOq391AgMBAAECggEAFPBRR7QSDCKgTwUnJcQdsRKF5KMD0TiETOGQYRn9Btdw\nu0YRhp/xogxsiJs6GiaVAty7k9TVdc8RiZ1aa66o91pyquOf8Vnzf02/fIVaB7jL\nYyoaq5tO6YlHmjYa9pwSZ9oO99LKJBp8hBp0rIyBf63I9HoalWwbuKY4QiMCSpZS\nJJY4vKzmwxsB3PHiJt80O7lTzOGpivhPQK49fLCtVmBrkiXpCgzCWtsCHIZ11QaG\nlYLrFtuke1hMmNmLrBSQL8zqb168EWWjP02G9aOlN8UbZ1M6dkUGfnW+yOFNGZSI\ng6WsY1qwb9vilXBwYz7lpF3G47v4KTq4W2uP56SUsQKBgQD8sjbviS34tOsw1+BP\nG+UKs2mW75zLU9N/Jabq/fBz4yEZ+U3In1s1HUQj2W16qSguH79Rty47d89nqujz\n5jh9gV3DwTht4I+D67PLo+NM1Uahx0d8E/F3RMxEu1J6ulwWFm+AVLSBS0bfUTgY\nKXqqTv4mdpD9rU51Z+HODsERCQKBgQD0N3tnHsmjBq581KmBv6/zBemy5hT5rSyq\nYlgrAftc4ZZRZFop73UF1Jn5t5L/hZspOcnJ6xZG9f1s/EaxKoc9TBtZt0gtSUcu\n0+lrRj+PidYsfz1/iYI7cI4l52gzChas/1Iny62t5uyFV2ssdy7065Am69pp9wM5\nD5hr+BMSDQKBgQCbfPV8swZMkNZfOZZWVy26Redk7o+mNTBgfkSVOCgqxslpeBO6\nrQOsTRPOk01gOpH0v6gzmemiwfgnK+0nlrOP1nhhqZUVVyY34GLDnVaRwnIxvbNo\nz8S2xOiEKld4GQ/sr2Vwq65eGHnFk+5WP7+w5+ZOuIpC7c7nQ0KYTk/SMQKBgE5w\ny6gxkV5VtRHPVKqiISeTzJ5znGUdpG0NrXgS6OPKaXe3Hea+TP4UbWhx+DsudMnn\nD9NVORCNzlqFJUeee1XK7jYA0qQJF14JHr4gECZQhYRBUkV2q2fgHSg7jZJnOSVT\n1NWHbD+hHnMtwvTDS0fLqb92ne7PMi/PvIthYO65AoGATZKOgn6QIAH5lE3Q3Zr+\nBDZP9JQJdU7dFTCiAEtSEm6yaMl7DBodhCYCIP5zaDv2Jt9ekiIgRDBj3vpTIo8/\nNLOgeg990nrTRwiIFV0lLPze93TjskPPx0FNNUtPVxvsHBf/zyirZR9+GAOf10Gr\nzVnWZ/O1zKFK1i5vU5yR8JI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "user-468@winter-bridge-405714.iam.gserviceaccount.com",
+  "client_id": "113918439370908555336",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/user-468%40winter-bridge-405714.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
