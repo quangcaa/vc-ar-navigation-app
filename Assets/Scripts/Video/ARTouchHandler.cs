@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ARTouchHandler : MonoBehaviour
 {
@@ -22,6 +24,13 @@ public class ARTouchHandler : MonoBehaviour
 
     void HandleTouch(Vector2 screenPos)
     {
+        
+        if (HandleUIRaycast(screenPos))
+        {
+            return;
+        }
+
+        
         Ray ray = arCamera.ScreenPointToRay(screenPos);
         RaycastHit hit;
 
@@ -34,5 +43,39 @@ public class ARTouchHandler : MonoBehaviour
                 btn.OnButtonPressed();
             }
         }
+    }
+
+   
+    bool HandleUIRaycast(Vector2 screenPos)
+    {
+        if (EventSystem.current == null)
+            return false;
+
+        PointerEventData pointerData = new PointerEventData(EventSystem.current);
+        pointerData.position = screenPos;
+
+        var results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        foreach (var result in results)
+        {
+            // Kiểm tra StorePOI trong UI
+            StorePOI storePOI = result.gameObject.GetComponentInParent<StorePOI>();
+            if (storePOI != null)
+            {
+                storePOI.OnClickFromButton();
+                return true;
+            }
+
+            // Kiểm tra VideoToggleButton trong UI
+            VideoToggleButton btn = result.gameObject.GetComponent<VideoToggleButton>();
+            if (btn != null)
+            {
+                btn.OnButtonPressed();
+                return true;
+            }
+        }
+
+        return false;
     }
 }
