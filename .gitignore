@@ -67,3 +67,7 @@ crashlytics-build.properties
 
 # Vscode
 .vscode/
+
+# Voice API key
+Assets/StreamingAssets/tts-key.json
+Assets/StreamingAssets/tts-key.json.meta
