@@ -9,7 +9,7 @@ public class HomeUI : MonoBehaviour
     
     void Start()
     {
-        btnARNavigation.onClick.AddListener(() => SceneManager.LoadScene("Samples/MultiSet-SDK/1.9.3/Sample Scenes/Navigation/Navigation2"));
+        btnARNavigation.onClick.AddListener(() => SceneManager.LoadScene("Navigation/Navigation/Navigation"));
     }
 
     // Update is called once per frame
