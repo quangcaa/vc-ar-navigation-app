@@ -8178,6 +8178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 759200490}
   - component: {fileID: 759200491}
+  - component: {fileID: 759200492}
   m_Layer: 7
   m_Name: MiniMapPathRenderer
   m_TagString: Untagged
@@ -8224,7 +8225,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 74a62017e9ff8ab42835e848e6094261, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8256,7 +8257,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.77534294
+        value: 0.87397194
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -8307,6 +8308,21 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &759200492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759200489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c77398ac4e9f2e40883091780b6ba74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 1761650303}
+  yOffset: 0.6
+  updateInterval: 0.2
 --- !u!1 &763785846
 GameObject:
   m_ObjectHideFlags: 0
@@ -19347,6 +19363,11 @@ MonoBehaviour:
 --- !u!4 &1761650301 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2160690168273123881, guid: 655cd46b63c52478f864df229ba7c4c6, type: 3}
+  m_PrefabInstance: {fileID: 3974324442853316806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!120 &1761650303 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 4314655949818177644, guid: 655cd46b63c52478f864df229ba7c4c6, type: 3}
   m_PrefabInstance: {fileID: 3974324442853316806}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1769410968
