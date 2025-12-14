@@ -22049,7 +22049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1505451498}
   height: 20
-  rotateWithTarget: 1
+  rotateWithTarget: 0
 --- !u!1 &2044577366
 GameObject:
   m_ObjectHideFlags: 0
