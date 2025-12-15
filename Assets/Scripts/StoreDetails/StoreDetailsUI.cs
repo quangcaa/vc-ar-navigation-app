@@ -128,9 +128,7 @@ public class StoreDetailsUI : MonoBehaviour
         {
             targetPos =
                 clickedTransform.position
-                + cam.transform.right * rightOffset
-                + cam.transform.up * upOffset
-                + cam.transform.forward * forwardOffset;
+                + cam.transform.right * rightOffset;
         }
 
         currentInstance.transform.position = startPos;

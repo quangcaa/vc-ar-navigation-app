@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: -0.36, y: 10.61}
+  m_SizeDelta: {x: 135.42, y: 133.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3090991477113608587
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68b6090ba5e012047a9ffd15ce7f88e8, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -92,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3382700204545997058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -246,8 +246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 44.305, y: 8.57}
+  m_AnchoredPosition: {x: -0.18, y: 11.778}
+  m_SizeDelta: {x: 130.27, y: 10.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2278058698122156539
 CanvasRenderer:
@@ -304,8 +304,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 5
@@ -383,8 +383,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 19}
-  m_SizeDelta: {x: 25, y: 25}
+  m_AnchoredPosition: {x: -0, y: 35}
+  m_SizeDelta: {x: 30, y: 31.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4853198192566667254
 CanvasRenderer:
@@ -508,8 +508,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 90, y: 32.21}
+  m_AnchoredPosition: {x: -0.58, y: -26.8}
+  m_SizeDelta: {x: 110, y: 48.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5240572217292755474
 CanvasRenderer:
@@ -539,11 +539,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Aristino l\xE0 th\u01B0\u01A1ng hi\u1EC7u th\u1EDDi trang nam cao c\u1EA5p
-    ra m\u1EAFt n\u0103m 2013, t\u1EADp trung v\xE0o c\xE1c s\u1EA3n ph\u1EA9m ch\u1EA5t
-    l\u01B0\u1EE3ng cao, thi\u1EBFt k\u1EBF hi\u1EC7n \u0111\u1EA1i, l\u1ECBch l\xE3m,
-    ph\xF9 h\u1EE3p v\xF3c d\xE1ng ng\u01B0\u1EDDi Vi\u1EC7t v\xE0 t\xF4n vinh v\u0103n
-    h\xF3a d\xE2n t\u1ED9c."
+  m_text: "K-Style Korean BBQ ph\u1EE5c v\u1EE5 n\u01B0\u1EDBng v\xE0 l\u1EA9u H\xE0n
+    Qu\u1ED1c, t\u1EF1 n\u01B0\u1EDBng t\u1EA1i b\xE0n. Menu \u0111a d\u1EA1ng th\u1ECBt,
+    rau v\xE0 m\xF3n k\xE8m, kh\xF4ng gian \u1EA5m c\xFAng. Th\xEDch h\u1EE3p nh\xF3m
+    b\u1EA1n, gia \u0111\xECnh ho\u1EB7c ai m\xEA \u0111\u1ED3 n\u01B0\u1EDBng chu\u1EA9n
+    v\u1ECB H\xE0n."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 30fbbc05d37a4f74286fc90920e27e78, type: 2}
   m_sharedMaterial: {fileID: 4926433419634769704, guid: 30fbbc05d37a4f74286fc90920e27e78, type: 2}
@@ -570,8 +570,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 5
@@ -649,8 +649,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 42.940002, y: 8.57}
+  m_AnchoredPosition: {x: -0.18025, y: 3.2778}
+  m_SizeDelta: {x: 130.27, y: 6.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6298764315046371191
 CanvasRenderer:
@@ -784,10 +784,10 @@ RectTransform:
   m_Children:
   - {fileID: 312053303253017660}
   - {fileID: 6720124598745529915}
+  - {fileID: 8757535568088769991}
   - {fileID: 2078449963912594316}
   - {fileID: 6157559759411567694}
   - {fileID: 8184666004058910658}
-  - {fileID: 8757535568088769991}
   - {fileID: 3382700204545997058}
   m_Father: {fileID: 5735469297839384086}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -852,8 +852,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: 86.14, y: 17.759998}
+  m_AnchoredPosition: {x: -0.0000019073, y: 61.555004}
+  m_SizeDelta: {x: 150, y: 26.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7857896598770246345
 CanvasRenderer:
@@ -883,7 +883,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Aristino
+  m_text: K-STYLE KOREAN BBQ
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 720aae84c8e4725409ba88cfa5e1842c, type: 2}
   m_sharedMaterial: {fileID: 5438227064886672877, guid: 720aae84c8e4725409ba88cfa5e1842c, type: 2}
@@ -910,10 +910,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 36
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 5
   m_fontSizeMax: 10
   m_fontStyle: 0
