@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEngine.Networking;
 
 [Serializable]
 public class Store
@@ -25,25 +22,30 @@ public class StoresWrapper
 
 public class StoreDetailsUI : MonoBehaviour
 {
-    public static StoreDetailsUI Instance { get; private set; }
+    public static StoreDetailsUI Instance;
 
-    [Header("UI References")]
-    public GameObject panel;
-    public TextMeshProUGUI titleText;
-    public TextMeshProUGUI categoryText;
-    public TextMeshProUGUI floorText;
-    public TextMeshProUGUI hoursText;
-    public TextMeshProUGUI descriptionText;
-    public RawImage storeImage;
+    [Header("Prefab")]
+    [SerializeField] private GameObject storeDetailPrefab;
+
+    [Header("Offsets (Camera Based)")]
+    [SerializeField] private float rightOffset = 0.35f;
+    [SerializeField] private float upOffset = 0.12f;
+    [SerializeField] private float forwardOffset = 0.05f;
+
+    [Header("Animation")]
+    [SerializeField] private float animDuration = 0.25f;
+
+    [Header("Distance Rule")]
+    [SerializeField] private float centerScreenDistance = 1.2f;
 
     private StoresWrapper storesData;
+    private GameObject currentInstance;
+    private Coroutine moveRoutine;
 
     void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-        }
         else
         {
             Destroy(gameObject);
@@ -51,161 +53,134 @@ public class StoreDetailsUI : MonoBehaviour
         }
 
         LoadStoresJson();
-
-        if (panel != null)
-            panel.SetActive(false);
     }
 
-    public void LoadStoresJson()
+    private void LoadStoresJson()
     {
         var txt = Resources.Load<TextAsset>("stores");
         if (txt == null)
         {
-            Debug.LogError("stores.json not found in Resources folder");
+            Debug.LogError("stores.json not found in Resources");
             return;
         }
 
-        try
-        {
-            storesData = JsonUtility.FromJson<StoresWrapper>(txt.text);
-            Debug.Log("Stores loaded successfully: " + (storesData?.stores.Length ?? 0) + " stores");
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError("Failed to parse stores.json: " + ex.Message);
-        }
+        storesData = JsonUtility.FromJson<StoresWrapper>(txt.text);
     }
 
-    // Static method: gọi trực tiếp bằng tên lớp
-    public static void ShowStoreById(string id)
+    // ===== API CHÍNH =====
+    public void ShowStoreById(string storeId, Transform clickedTransform)
     {
-        if (Instance == null)
-        {
-            Instance = FindObjectOfType<StoreDetailsUI>();
-            if (Instance == null)
-            {
-                Debug.LogError("StoreDetailsUI not found in scene!");
-                return;
-            }
-        }
-
-        if (Instance.storesData == null)
-        {
-            Instance.LoadStoresJson();
-        }
-
-        if (Instance.storesData == null || Instance.storesData.stores == null)
-        {
-            Debug.LogError("Stores data is null!");
-            return;
-        }
+        if (storesData == null || storesData.stores == null) return;
 
         Store found = null;
-        foreach (var store in Instance.storesData.stores)
+        foreach (var s in storesData.stores)
         {
-            if (string.Equals(store.id, id, StringComparison.OrdinalIgnoreCase) ||
-                string.Equals(store.storeName, id, StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(s.id, storeId, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(s.storeName, storeId, StringComparison.OrdinalIgnoreCase))
             {
-                found = store;
+                found = s;
                 break;
             }
         }
 
-        if (found == null)
+        if (found == null) return;
+
+        ToggleStore(found, clickedTransform);
+    }
+
+    private void ToggleStore(Store store, Transform clickedTransform)
+    {
+        if (currentInstance != null)
         {
-            Debug.LogWarning("Store not found: " + id);
+            Destroy(currentInstance);
+            currentInstance = null;
             return;
         }
 
-        Instance.DisplayStore(found);
-    }
+        Camera cam = Camera.main;
+        if (cam == null) return;
 
-    private void DisplayStore(Store store)
-    {
-        if (panel != null)
-            panel.SetActive(true);
+        currentInstance = Instantiate(storeDetailPrefab);
 
-        if (titleText != null)
-            titleText.text = store.storeName ?? "N/A";
+        // ===== GÁN DATA =====
+        var controller = currentInstance.GetComponent<StoreDetailController>();
+        if (controller == null)
+            controller = currentInstance.AddComponent<StoreDetailController>();
 
-        if (categoryText != null)
-            categoryText.text = store.category ?? "N/A";
+        controller.DisplayStore(store);
 
-        if (floorText != null)
-            floorText.text = store.floor ?? "N/A";
+        // ===== VỊ TRÍ START (GẦN OBJECT) =====
+        Vector3 startPos = clickedTransform.position;
 
-        if (hoursText != null)
-            hoursText.text = store.openingHours ?? "N/A";
+        // ===== VỊ TRÍ TARGET =====
+        Vector3 targetPos;
 
-        if (descriptionText != null)
-            descriptionText.text = store.description ?? "N/A";
+        float distance = Vector3.Distance(cam.transform.position, clickedTransform.position);
 
-        if (storeImage != null && !string.IsNullOrEmpty(store.imageUrl))
+        // === GẦN → CENTER SCREEN ===
+        if (distance < centerScreenDistance)
         {
-            Debug.Log($"[StoreDetailsUI] Loading image for store '{store.storeName}' from url: {store.imageUrl}");
-            Instance.StartCoroutine(Instance.LoadImageFromUrl(store.imageUrl));
+            targetPos = cam.ScreenToWorldPoint(
+                new Vector3(Screen.width / 2f, Screen.height / 2f, 1.3f)
+            );
         }
         else
         {
-            Debug.LogWarning($"[StoreDetailsUI] storeImage is null or imageUrl is empty for store '{store.storeName}'");
+            targetPos =
+                clickedTransform.position
+                + cam.transform.right * rightOffset;
+        }
+
+        currentInstance.transform.position = startPos;
+        currentInstance.transform.rotation = LookAtCamera(currentInstance.transform.position);
+
+        // ===== ANIMATE =====
+        moveRoutine = StartCoroutine(
+            AnimateMove(startPos, targetPos, currentInstance)
+        );
+    }
+
+    // ===== ANIMATION =====
+    private IEnumerator AnimateMove(Vector3 from, Vector3 to, GameObject obj)
+    {
+        float t = 0f;
+        Camera cam = Camera.main;
+
+        while (t < 1f && obj != null)
+        {
+            t += Time.deltaTime / animDuration;
+
+            Vector3 pos = Vector3.Lerp(from, to, EaseOut(t));
+            pos = ClampToScreen(pos, cam);
+
+            obj.transform.position = pos;
+            obj.transform.rotation = LookAtCamera(pos);
+
+            yield return null;
         }
     }
 
-    private IEnumerator LoadImageFromUrl(string url)
+    // ===== BILLBOARD =====
+    private Quaternion LookAtCamera(Vector3 pos)
     {
-        // Handle base64 data URI
-        if (url.StartsWith("data:image"))
-        {
-            try
-            {
-                int commaIndex = url.IndexOf(',');
-                if (commaIndex > 0)
-                {
-                    string base64Data = url.Substring(commaIndex + 1);
-                    byte[] imageBytes = Convert.FromBase64String(base64Data);
-                    Texture2D texture = new Texture2D(1, 1);
-                    texture.LoadImage(imageBytes);
-                    if (storeImage != null)
-                        storeImage.texture = texture;
-                    yield break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.LogWarning("Failed to load base64 image: " + ex.Message);
-                yield break;
-            }
-        }
-
-        // Handle HTTP/HTTPS URL
-        using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
-        {
-            Debug.Log($"[StoreDetailsUI] Sending UnityWebRequest for image: {url}");
-            yield return request.SendWebRequest();
-
-            // Dùng cách check lỗi đơn giản, hoạt động trên mọi version Unity
-            if (request.isNetworkError || request.isHttpError)
-            {
-                Debug.LogWarning($"[StoreDetailsUI] Failed to load image from URL: {url}, error: {request.error}");
-                yield break;
-            }
-
-            if (storeImage != null)
-            {
-                Texture2D texture = DownloadHandlerTexture.GetContent(request);
-                storeImage.texture = texture;
-                Debug.Log("[StoreDetailsUI] Image loaded successfully");
-            }
-            else
-            {
-                Debug.LogWarning("[StoreDetailsUI] storeImage reference is null when trying to assign texture");
-            }
-        }
+        Camera cam = Camera.main;
+        return Quaternion.LookRotation(pos - cam.transform.position);
     }
 
-    public void HidePanel()
+    // ===== CLAMP UI TRONG MÀN HÌNH =====
+    private Vector3 ClampToScreen(Vector3 worldPos, Camera cam)
     {
-        if (panel != null)
-            panel.SetActive(false);
+        Vector3 vp = cam.WorldToViewportPoint(worldPos);
+
+        vp.x = Mathf.Clamp(vp.x, 0.1f, 0.9f);
+        vp.y = Mathf.Clamp(vp.y, 0.15f, 0.9f);
+
+        return cam.ViewportToWorldPoint(vp);
+    }
+
+    // ===== EASING =====
+    private float EaseOut(float t)
+    {
+        return 1f - Mathf.Pow(1f - t, 3f);
     }
 }
