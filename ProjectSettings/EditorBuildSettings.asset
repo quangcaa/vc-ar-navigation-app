@@ -15,6 +15,7 @@ EditorBuildSettings:
     path: Assets/Navigation/Navigation/Navigation.unity
     guid: 4756266ab70c6b942958e390ef123b12
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 3fe4a7f4836a77349bd6a33a60b53cf8, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: eb314503ff3528249ad10eb5a4041fa8, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6b267de1c7b44fb4b801bdf32dda7de6, type: 2}
