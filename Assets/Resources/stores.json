@@ -57,7 +57,7 @@
     {
       "id": "7",
       "storeName": "DOOKKI",
-      "category": "Food & Beverage",
+      "category": "Food",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "Dookki is a Korean topokki hotpot buffet chain with a rich menu, comfortable seating, and professional service. It’s a fun self-serve experience, ideal for groups of friends or families.",
@@ -66,7 +66,7 @@
     {
       "id": "8",
       "storeName": "KAI SUSHIBAR",
-      "category": "Food & Beverage",
+      "category": "Food",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "Kai Sushibar serves sushi, sashimi, and other Japanese dishes in a cozy setting. Fresh ingredients and a varied menu make it suitable for lunch, dates, or casual meetups at an accessible price point.",
@@ -75,7 +75,7 @@
     {
       "id": "9",
       "storeName": "KFC",
-      "category": "Food & Beverage",
+      "category": "Food",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "KFC is a well-known fast-food chain famous for its signature seasoned fried chicken. The menu also includes burgers, chicken rice, fries, and side dishes—quick and convenient for all ages.",
@@ -84,7 +84,7 @@
     {
       "id": "10",
       "storeName": "MIXUE",
-      "category": "Food & Beverage",
+      "category": "Food",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "MIXUE is known for milk tea and a variety of refreshing drinks with easy-to-enjoy flavors at affordable prices. The brand emphasizes ingredient quality and consistent preparation—great for a quick break while shopping.",
@@ -93,7 +93,7 @@
     {
       "id": "12",
       "storeName": "NÉT HUẾ",
-      "category": "Food & Beverage",
+      "category": "Food",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "Nét Huế serves Hue-style cuisine in a setting inspired by Vietnam’s former imperial capital with signature décor. Ideal for family meals, meetups with friends, or special occasions, offering a strong Central Vietnam flavor experience.",
@@ -102,7 +102,7 @@
     {
       "id": "13",
       "storeName": "The Pizza Company",
-      "category": "Food & Beverage",
+      "category": "Food",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "The Pizza Company combines Italian-inspired pizza with Asian-friendly flavors. With tasty crusts, generous toppings, and lots of cheese, its varied menu is perfect for friends, families, or quick meal orders.",
@@ -129,7 +129,7 @@
     {
       "id": "16",
       "storeName": "FACE WASH FOX",
-      "category": "Cosmetics & Beauty",
+      "category": "Cosmetics",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "Face Wash Fox is a high-tech face-wash store combining optimized skincare steps with modern technology. The service is quick and convenient, helping cleanse and care for facial skin effectively for a wide range of customers.",
@@ -138,7 +138,7 @@
     {
       "id": "17",
       "storeName": "MINISO",
-      "category": "Toys & Lifestyle",
+      "category": "Toys",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "MINISO is a Japanese-inspired lifestyle retail store offering home goods, cosmetics, snacks, and more at reasonable prices. The product range is diverse, practical, and often includes collaborations with popular IPs.",
@@ -147,7 +147,7 @@
     {
       "id": "18",
       "storeName": "MYKINGDOM",
-      "category": "Toys & Lifestyle",
+      "category": "Toys",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "MYKINGDOM specializes in educational toys with verified safety standards. It offers thousands of products from well-known brands such as LEGO, suitable for many age groups—great for gifts and nurturing children’s creativity.",
@@ -156,7 +156,7 @@
     {
       "id": "19",
       "storeName": "TÂN VIỆT BOOKSTORE",
-      "category": "Toys & Lifestyle",
+      "category": "Toys",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "Tân Việt Bookstore is part of Tân Việt’s Culture & Education ecosystem, offering a wide selection of books and learning products. It focuses on official distribution and many licensed titles, suitable for students and families.",
@@ -201,7 +201,7 @@
     {
       "id": "24",
       "storeName": "K-STYLE KOREAN BBQ",
-      "category": "Food & Beverage",
+      "category": "Food",
       "floor": "Basement Level B1",
       "openingHours": "09:30 - 22:30",
       "description": "K-Style Korean BBQ serves Korean grilled BBQ and hotpot, with table-side grilling. The menu includes a variety of meats, vegetables, and side dishes in a warm atmosphere—perfect for groups, families, and Korean BBQ lovers.",
