@@ -31,9 +31,6 @@ public class VoicePromptPlayer : MonoBehaviour
         }
 
         await InitializeClientAsync();
-
-        // Quick smoke test to ensure Google TTS works even before navigation starts.
-        Speak("Voice test. This should play even without navigation.");
     }
 
     private async Task InitializeClientAsync()
@@ -45,10 +42,14 @@ public class VoicePromptPlayer : MonoBehaviour
 
         isInitializing = true;
         string credentialPath = Path.Combine(Application.streamingAssetsPath, credentialFileName);
+        Debug.Log($"[VoicePromptPlayer] Initializing TTS with path: {credentialPath}");
 
         try
         {
-            client = new GoogleTtsClient(credentialPath, languageCode, voiceName, sampleRate);
+            // MUST use CreateAsync() for Android compatibility
+            // Android StreamingAssets are inside APK and cannot be read synchronously
+            client = await GoogleTtsClient.CreateAsync(credentialPath, languageCode, voiceName, sampleRate);
+            Debug.Log("[VoicePromptPlayer] TTS Client initialized successfully!");
         }
         catch (System.Exception ex)
         {

@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fbb32657cdfcf1499db2476a1fef99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credentialFileName: Tts-key.json
+  credentialFileName: tts-key.json
   languageCode: en-US
   voiceName: en-US-Wavenet-C
   sampleRate: 22050
@@ -9439,11 +9439,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c97e08daed294468c81c51d7248102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arCamera: {fileID: 0}
   videoScreen: {fileID: 1857054219}
   videoPlayer: {fileID: 1857054220}
-  tapToToggle: 1
-  hideOnStart: 1
-  tapCamera: {fileID: 1505451503}
 --- !u!114 &851053932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11310,11 +11308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c97e08daed294468c81c51d7248102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arCamera: {fileID: 0}
   videoScreen: {fileID: 495367297}
   videoPlayer: {fileID: 495367298}
-  tapToToggle: 1
-  hideOnStart: 1
-  tapCamera: {fileID: 1505451503}
 --- !u!114 &1013157782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14607,6 +14603,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arCamera: {fileID: 1505451503}
+  interactLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  videoScreen: {fileID: 0}
+  videoPlayer: {fileID: 0}
+  pauseInsteadOfStop: 1
 --- !u!4 &1311379568
 Transform:
   m_ObjectHideFlags: 0

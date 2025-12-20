@@ -18,23 +18,43 @@ public sealed class GoogleTtsClient
     private readonly int _sampleRate;
     private readonly string _audioEncoding;
 
-    /// <param name="credentialPath">Absolute path to the service-account JSON.</param>
-    /// <param name="languageCode">e.g. vi-VN.</param>
-    /// <param name="voiceName">e.g. vi-VN-Wavenet-A.</param>
-    /// <param name="sampleRate">e.g. 22050.</param>
-    /// <param name="audioEncoding">Defaults to LINEAR16 for PCM output.</param>
-    public GoogleTtsClient(
-        string credentialPath,
-        string languageCode = "vi-VN",
-        string voiceName = "vi-VN-Wavenet-A",
-        int sampleRate = 22050,
-        string audioEncoding = "LINEAR16")
+    /// <summary>
+    /// Private constructor - use CreateAsync() factory method instead.
+    /// </summary>
+    private GoogleTtsClient(
+        GoogleTtsAuth auth,
+        string languageCode,
+        string voiceName,
+        int sampleRate,
+        string audioEncoding)
     {
-        _auth = new GoogleTtsAuth(credentialPath);
+        _auth = auth;
         _languageCode = languageCode;
         _voiceName = voiceName;
         _sampleRate = sampleRate;
         _audioEncoding = audioEncoding;
+    }
+
+    /// <summary>
+    /// Factory method to create GoogleTtsClient asynchronously.
+    /// REQUIRED for Android because StreamingAssets cannot be read synchronously.
+    /// </summary>
+    /// <param name="credentialPath">Path to the service-account JSON.</param>
+    /// <param name="languageCode">e.g. en-US or vi-VN.</param>
+    /// <param name="voiceName">e.g. en-US-Wavenet-D.</param>
+    /// <param name="sampleRate">e.g. 22050.</param>
+    /// <param name="audioEncoding">Defaults to LINEAR16 for PCM output.</param>
+    public static async Task<GoogleTtsClient> CreateAsync(
+        string credentialPath,
+        string languageCode = "en-US",
+        string voiceName = "en-US-Wavenet-D",
+        int sampleRate = 22050,
+        string audioEncoding = "LINEAR16")
+    {
+        Debug.Log($"[GoogleTtsClient] Creating client with credential: {credentialPath}");
+        var auth = await GoogleTtsAuth.CreateFromPathAsync(credentialPath);
+        Debug.Log("[GoogleTtsClient] Auth created successfully");
+        return new GoogleTtsClient(auth, languageCode, voiceName, sampleRate, audioEncoding);
     }
 
     /// <summary>
