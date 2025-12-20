@@ -1,6 +1,10 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 [Serializable]
 public class Store
@@ -38,6 +42,10 @@ public class StoreDetailsUI : MonoBehaviour
     [Header("Distance Rule")]
     [SerializeField] private float centerScreenDistance = 1.2f;
 
+    [Header("Interaction")]
+    [SerializeField] private LayerMask raycastMask = ~0; // Which layers are tappable
+    [SerializeField] private float raycastMaxDistance = 100f;
+
     private StoresWrapper storesData;
     private GameObject currentInstance;
     private Coroutine moveRoutine;
@@ -53,6 +61,88 @@ public class StoreDetailsUI : MonoBehaviour
         }
 
         LoadStoresJson();
+    }
+
+    void Update()
+    {
+        // Handle tap/click anywhere on screen and raycast into scene
+        if (TryGetClickPosition(out Vector2 screenPos))
+        {
+            if (EventSystem.current != null)
+            {
+                // Ignore taps over UI
+                #if ENABLE_INPUT_SYSTEM
+                // For new Input System, pointerId -1 means mouse, but for touch there's a pointer per touch.
+                if (EventSystem.current.IsPointerOverGameObject()) return;
+                #else
+                if (EventSystem.current.IsPointerOverGameObject()) return;
+                #endif
+            }
+
+            Camera cam = Camera.main;
+            if (cam == null) return;
+
+            Ray ray = cam.ScreenPointToRay(screenPos);
+            if (Physics.Raycast(ray, out RaycastHit hit, raycastMaxDistance, raycastMask))
+            {
+                // Prefer StorePOI on the hit hierarchy to get the store id
+                var poi = hit.collider.GetComponentInParent<StorePOI>();
+                Transform clickedT = poi != null ? poi.transform : hit.transform;
+                string id = poi != null ? poi.storeId : hit.collider.gameObject.name;
+
+                ShowStoreById(id, clickedT);
+            }
+            else
+            {
+                // Tapped empty space → hide current card if any
+                if (currentInstance != null)
+                {
+                    Destroy(currentInstance);
+                    currentInstance = null;
+                }
+            }
+        }
+    }
+
+    private bool TryGetClickPosition(out Vector2 pos)
+    {
+        // New Input System
+        #if ENABLE_INPUT_SYSTEM
+        if (Touchscreen.current != null)
+        {
+            var touch = Touchscreen.current.primaryTouch;
+            if (touch.press.wasPressedThisFrame)
+            {
+                pos = touch.position.ReadValue();
+                return true;
+            }
+        }
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            pos = Mouse.current.position.ReadValue();
+            return true;
+        }
+        pos = default;
+        return false;
+        #else
+        // Old Input Manager
+        if (Input.touchCount > 0)
+        {
+            var t = Input.GetTouch(0);
+            if (t.phase == TouchPhase.Began)
+            {
+                pos = t.position;
+                return true;
+            }
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            pos = Input.mousePosition;
+            return true;
+        }
+        pos = default;
+        return false;
+        #endif
     }
 
     private void LoadStoresJson()
